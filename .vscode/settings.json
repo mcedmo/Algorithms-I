@@ -1,0 +1,12 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        ".lift/algs4.jar"
+    ],
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+}

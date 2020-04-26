@@ -36,8 +36,8 @@
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.findbugs.project" />
   </component>

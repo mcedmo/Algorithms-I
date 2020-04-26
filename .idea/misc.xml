@@ -7,5 +7,9 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11.0.3" project-jdk-type="JavaSDK" />
+>>>>>>> f4d628b607ec05d3f53ec4ae73557f9a6a5de55e
 </project>

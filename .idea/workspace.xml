@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="36e604c8-6e18-4c92-af78-efaf94386e6d" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="46ed59dd-c7b0-44ee-a51b-4c755ea34f6d" name="Default Changelist" comment="" />
+>>>>>>> f4d628b607ec05d3f53ec4ae73557f9a6a5de55e
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +22,11 @@
     <analyzeAfterCompile>true</analyzeAfterCompile>
     <toolWindowToFront>false</toolWindowToFront>
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1axcNicDzuRLxPFxwdljE4fJEyB" />
+=======
+  <component name="ProjectId" id="1avAhfRCRWg8OpJe8tMfRTvBY2p" />
+>>>>>>> f4d628b607ec05d3f53ec4ae73557f9a6a5de55e
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -38,11 +46,16 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Application.PercolationVisualizer">
+=======
+  <component name="RunManager">
+>>>>>>> f4d628b607ec05d3f53ec4ae73557f9a6a5de55e
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="PercolationStats" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="PercolationStats" />
       <module name="Algorithms-I" />
@@ -53,6 +66,11 @@
       <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
       <module name="Algorithms-I" />
       <option name="PROGRAM_PARAMETERS" value="input20.txt" />
+=======
+    <configuration name="Deque" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Deque" />
+      <module name="Algorithms-I" />
+>>>>>>> f4d628b607ec05d3f53ec4ae73557f9a6a5de55e
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">

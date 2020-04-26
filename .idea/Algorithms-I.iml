@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -28,5 +29,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+=======
+>>>>>>> f4d628b607ec05d3f53ec4ae73557f9a6a5de55e
   </component>
 </module>

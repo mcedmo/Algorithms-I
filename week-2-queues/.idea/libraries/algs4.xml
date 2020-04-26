@@ -2,12 +2,14 @@
   <library name="algs4">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/.lift/algs4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../week-1-percolation/.lift/stdlib.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="https://algs4.cs.princeton.edu/code/javadoc" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/.lift/algs4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../week-1-percolation/.lift/stdlib.jar!/" />
     </SOURCES>
   </library>
 </component>
