@@ -1,3 +1,6 @@
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -23,12 +26,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // add the item
     public void enqueue(Item item) {
-        if (n == q.length) resize(2 * q.length); // if array is full double the length
+        if (item == null) throw new IllegalArgumentException();
         q[n++] = item;
+        if (n == q.length) resize(2 * q.length);
     }
 
     private void resize(int capacity) {
-        assert capacity >= n;
         Item[] copy = (Item[]) new Object[capacity];
         for (int i = 0; i < n; i++) {
             copy[i] = q[i];
@@ -42,8 +45,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         int loc = StdRandom.uniform(n);
         Item item = q[loc];
         q[loc] = q[n - 1];
-        q[n - 1] = null;
-        n--;
+        q[--n] = null;
         if (n > 0 && n == q.length / 4) resize(q.length / 2);
         return item;
     }
@@ -62,14 +64,14 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     private class ArrayIterator implements Iterator<Item> {
-        private int i = 0;
+        private int i = n;
 
         public ArrayIterator() {
             StdRandom.shuffle(q);
         }
 
         public boolean hasNext() {
-            return i < n;
+            return i < 0;
         }
 
         public Item next() {
@@ -93,6 +95,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
                 StdOut.print(queue.dequeue() + " ");
         }
         StdOut.println("(" + queue.size() + " left on queue)");
+        for (String s : queue) {
+            StdOut.println(queue.dequeue());
+        }
+
     }
 
 }

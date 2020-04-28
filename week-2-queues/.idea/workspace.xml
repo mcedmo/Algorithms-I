@@ -53,10 +53,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Deque">
+  <component name="RunManager" selected="Application.RandomizedQueue">
     <configuration name="Deque" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Deque" />
       <module name="Algorithms, Part I" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Permuation" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Permutation" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="3" />
+      <option name="REDIRECT_INPUT" value="true" />
+      <option name="INPUT_FILE" value="$PROJECT_DIR$/duplicates.txt" />
       <method v="2" />
     </configuration>
     <configuration name="Queue" type="Application" factoryName="Application">
@@ -85,6 +93,14 @@
     <configuration default="true" type="Application" factoryName="Application">
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Deque" />
+      <item itemvalue="Application.Permuation" />
+      <item itemvalue="Application.Queue" />
+      <item itemvalue="Application.RandomizedQueue" />
+      <item itemvalue="Application.ResizingArrayQueue" />
+      <item itemvalue="Application.Stack" />
+    </list>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

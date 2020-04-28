@@ -1,10 +1,11 @@
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
-    // Dequeue. A double-ended queue or deque (pronounced “deck”) is a generalization of a stack and a
-    // queue that supports adding and removing items from either the front or the back of the data structure.
-    // implements Iterable<Item>
+
     private Node<Item> first;    // beginning of queue
     private Node<Item> last;     // end of queue
     private int n;               // number of elements on queue
@@ -62,7 +63,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     // remove and return the item from the front
     public Item removeFirst() {
-        if (isEmpty()) throw new java.util.NoSuchElementException("Deque underflow");
+        if (isEmpty()) throw new NoSuchElementException("Deque underflow");
         Item item = first.item;
         first = first.next;
         n--;
@@ -73,7 +74,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     // remove and return the item from the back
     public Item removeLast() {
-        if (isEmpty()) throw new java.util.NoSuchElementException("Deque underflow");
+        if (isEmpty()) throw new NoSuchElementException("Deque underflow");
         Item item = last.item;
         last = last.prev;
         n--;
@@ -106,30 +107,18 @@ public class Deque<Item> implements Iterable<Item> {
         }
     }
 
-    // unit tests
-    private class DequeTest {
-        Deque<Integer> deque = new Deque<Integer>();
-
-        private void DequeTest() {
-            int[] testElements = { 1, 2, 3, 4, 5, 6 };
-            for (int i = 0; i < testElements.length; i++) {
-                deque.addFirst(testElements[i]);
-            }
-        }
-
-        private void testIterator() {
-            int x = 0;
-            for (Integer i : deque) {
-                if (x != i) StdOut.print("iteration error");
-                x++;
-            }
-
-        }
-    }
-
     // unit testing (required)
     public static void main(String[] args) {
-        Deque.DequeTest.testIterator();
+
+        Deque<String> deque = new Deque<String>();
+        while (!StdIn.isEmpty()) {
+            String item = StdIn.readString();
+            if (!item.equals("-"))
+                deque.addFirst(item);
+            else if (!deque.isEmpty())
+                StdOut.print(deque.removeFirst() + " ");
+        }
+        StdOut.println("(" + deque.size() + " left on queue)");
     }
 }
 
