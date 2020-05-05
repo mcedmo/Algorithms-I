@@ -6,8 +6,8 @@ import java.util.LinkedList;
 
 public class Board {
 
-    private int[][] startBoard;
-    private int width;
+    private final int[][] startBoard;
+    private final int width;
 
     // create a board from an n-by-n array of tiles,
     // where tiles[row][col] = tile at (row, col)
