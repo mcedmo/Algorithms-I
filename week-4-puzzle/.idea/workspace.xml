@@ -31,7 +31,7 @@
     <analyzeAfterCompile>true</analyzeAfterCompile>
     <toolWindowToFront>false</toolWindowToFront>
   </component>
-  <component name="ProjectId" id="1bHNOGsTCQNWXAEKyeioDDOVi4a" />
+  <component name="ProjectId" id="1bS9PtRfQUaFMaDOtiED2aBp4rJ" />
   <component name="PropertiesComponent">
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
@@ -50,28 +50,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
-    <configuration name="BruteCollinearPoints" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="BruteCollinearPoints" />
+  <component name="RunManager">
+    <configuration name="Board" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Board" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="input8.txt" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Client" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Client" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="mystery10089.txt" />
-      <method v="2" />
-    </configuration>
-    <configuration name="FastCollinearPoints" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="FastCollinearPoints" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="input8.txt" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Point" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Point" />
-      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="puzzle3x3-01.txt" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
