@@ -5,3 +5,4 @@
 ##### Queues -- Grade: 90/100
 ##### Collinear -- Grade: 100/100
 ##### Puzzle -- Grade: 100/100
+##### KdTree -- Grade: 100/100
