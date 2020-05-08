@@ -55,11 +55,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.KdTree">
+  <component name="RunManager" selected="Application.RangeSearchVisualizer">
     <configuration name="KdTree" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="KdTree" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="test.txt" />
+      <option name="PROGRAM_PARAMETERS" value="input10.txt" />
       <method v="2" />
     </configuration>
     <configuration name="KdTreeVisualizer" type="Application" factoryName="Application">
@@ -69,6 +69,12 @@
     </configuration>
     <configuration name="NearestNeighborVisualizer" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="NearestNeighborVisualizer" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="input10.txt" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PointSET" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="PointSET" />
       <module name="Algorithms, Part I" />
       <option name="PROGRAM_PARAMETERS" value="input10.txt" />
       <method v="2" />

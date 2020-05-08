@@ -1,4 +1,3 @@
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.RectHV;
@@ -46,17 +45,17 @@ public class KdTree {
     // add the point to the set (if it is not already in the set)
     public void insert(Point2D p) {
         if (p == null) throw new IllegalArgumentException();
-        RectHV rect = new RectHV(0, 0, 1, 1);
 
         // calls helper method
-        root = insert(root, p, VERTICAL, rect);
+        root = insert(root, p, VERTICAL, 0, 0, 1, 1);
     }
 
     // insert helper method
-    private Node insert(Node x, Point2D point, boolean direction, RectHV rect) {
+    private Node insert(Node x, Point2D point, boolean direction, double xmin, double ymin,
+                        double xmax, double ymax) {
         if (x == null) {
             size++;
-            return new Node(point, rect);
+            return new Node(point, new RectHV(xmin, ymin, xmax, ymax));
         }
         if (x.point.equals(point)) return x;
         double cmp = comparePoints(point, x, direction);
@@ -64,33 +63,26 @@ public class KdTree {
         if (direction == VERTICAL) {
             // left of a vertical
             if (cmp < 0) {
-                x.left = insert(x.left, point, !direction,
-                                new RectHV(x.rect.xmin(), x.rect.ymin(), x.point.x(),
-                                           x.rect.ymax()));
+                x.left = insert(x.left, point, !direction, xmin, ymin, x.point.x(), ymax);
             }
             // right of a vertical
             else {
-                x.right = insert(x.right, point, !direction,
-                                 new RectHV(x.point.x(), x.rect.ymin(), x.rect.xmax(),
-                                            x.rect.ymax()));
+                x.right = insert(x.right, point, !direction, x.point.x(), ymin, xmax, ymax);
             }
         }
-        else if (direction == HORIZONTAL) {
+        else {
             // below horizontal
             if (cmp < 0) {
-                x.left = insert(x.left, point, !direction,
-                                new RectHV(x.rect.xmin(), x.rect.ymin(), x.rect.xmax(),
-                                           x.point.y()));
+                x.left = insert(x.left, point, !direction, xmin, ymin, xmax, x.point.y());
             }
             // above horizontal
             else {
-                x.right = insert(x.right, point, !direction,
-                                 new RectHV(x.rect.xmin(), x.point.y(), x.rect.xmax(),
-                                            x.rect.ymax()));
+                x.right = insert(x.right, point, !direction, xmin, x.point.y(), xmax, ymax);
             }
         }
 
         return x;
+
     }
 
     // compares a point and the point of a node
@@ -101,16 +93,15 @@ public class KdTree {
     // does the set contain point p?
     public boolean contains(Point2D p) {
         if (p == null) throw new IllegalArgumentException();
-        if (isEmpty()) return false;
         return contains(root, p, VERTICAL);
     }
 
     private boolean contains(Node x, Point2D p, boolean direction) {
+        if (x == null) return false;
         if (p.equals(x.point)) return true;
         double cmp = comparePoints(p, x, direction);
-        if (x.left != null && cmp < 0) return contains(x.left, p, !direction);
-        if (x.right != null && cmp > 0) return contains(x.right, p, !direction);
-        return false;
+        if (cmp < 0) return contains(x.left, p, !direction);
+        else return contains(x.right, p, !direction);
     }
 
     // draw all points to standard draw
@@ -118,6 +109,7 @@ public class KdTree {
         if (root == null) return;
         // call helper method
         draw(root, VERTICAL);
+
     }
 
     // draw helper
@@ -162,40 +154,29 @@ public class KdTree {
     // a nearest neighbor in the set to point p; null if the set is empty
     public Point2D nearest(Point2D p) {
         if (p == null) throw new IllegalArgumentException();
-        if (isEmpty()) return champion;
-        distance = p.distanceSquaredTo(root.point);
-        champion = root.point;
-        nearest(p, root, VERTICAL);
-        return champion;
+        if (isEmpty()) return null;
+        distance = root.point.distanceSquaredTo(p);
+
+        return nearest(p, root, root.point, VERTICAL);
     }
 
-    private void nearest(Point2D p, Node x, boolean direction) {
-        if (p.distanceSquaredTo(x.point) < distance) {
-            distance = p.distanceSquaredTo(x.point);
-            champion = x.point;
+    private Point2D nearest(Point2D p, Node x, Point2D champ, boolean direction) {
+        if (x == null) return champ;
+        if (x.rect.distanceSquaredTo(p) < distance) {
+            if (x.point.distanceSquaredTo(p) < distance) {
+                champ = x.point;
+                distance = x.point.distanceSquaredTo(p);
+            }
+            if (comparePoints(p, x, direction) < 0) {
+                champ = nearest(p, x.left, champ, !direction);
+                champ = nearest(p, x.right, champ, !direction);
+            }
+            else {
+                champ = nearest(p, x.right, champ, !direction);
+                champ = nearest(p, x.left, champ, !direction);
+            }
         }
-
-        if (x.left != null && x.left.rect.distanceSquaredTo(p) < distance)
-            nearest(p, x.left, !direction);
-        if (x.right != null && x.right.rect.distanceSquaredTo(p) < distance)
-            nearest(p, x.right, !direction);
-    }
-
-    public static void main(String[] args) {
-        // initialize the data structures from file
-        String filename = args[0];
-        In in = new In(filename);
-        KdTree kdtree = new KdTree();
-        while (!in.isEmpty()) {
-            double x = in.readDouble();
-            double y = in.readDouble();
-            Point2D p = new Point2D(x, y);
-            kdtree.insert(p);
-        }
-
-        System.out.println(kdtree.size());
-        System.out.println(kdtree.contains(new Point2D(0.25, 0.0)));
-
+        return champ;
     }
 
 }
