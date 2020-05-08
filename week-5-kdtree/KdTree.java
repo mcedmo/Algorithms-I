@@ -16,7 +16,7 @@ public class KdTree {
     private double distance = 0;
 
     private static class Node {
-        private Point2D point;
+        private final Point2D point;
         private Node left;
         private Node right;
         private final RectHV rect;
@@ -46,17 +46,19 @@ public class KdTree {
     // add the point to the set (if it is not already in the set)
     public void insert(Point2D p) {
         if (p == null) throw new IllegalArgumentException();
-        if (contains(p)) return;
         RectHV rect = new RectHV(0, 0, 1, 1);
 
         // calls helper method
         root = insert(root, p, VERTICAL, rect);
-        size++;
     }
 
     // insert helper method
     private Node insert(Node x, Point2D point, boolean direction, RectHV rect) {
-        if (x == null) return new Node(point, rect);
+        if (x == null) {
+            size++;
+            return new Node(point, rect);
+        }
+        if (x.point.equals(point)) return x;
         double cmp = comparePoints(point, x, direction);
 
         if (direction == VERTICAL) {
@@ -104,15 +106,10 @@ public class KdTree {
     }
 
     private boolean contains(Node x, Point2D p, boolean direction) {
-        if (x == null) return false;
-        double cmp = comparePoints(p, x, direction);
-        if (cmp < 0) contains(x.left, p, !direction);
-        if (cmp > 0) contains(x.right, p, !direction);
         if (p.equals(x.point)) return true;
-        if (cmp == 0) {
-            contains(x.left, p, !direction);
-            contains(x.right, p, !direction);
-        }
+        double cmp = comparePoints(p, x, direction);
+        if (x.left != null && cmp < 0) return contains(x.left, p, !direction);
+        if (x.right != null && cmp > 0) return contains(x.right, p, !direction);
         return false;
     }
 
@@ -165,6 +162,7 @@ public class KdTree {
     // a nearest neighbor in the set to point p; null if the set is empty
     public Point2D nearest(Point2D p) {
         if (p == null) throw new IllegalArgumentException();
+        if (isEmpty()) return champion;
         distance = p.distanceSquaredTo(root.point);
         champion = root.point;
         nearest(p, root, VERTICAL);
@@ -195,7 +193,9 @@ public class KdTree {
             kdtree.insert(p);
         }
 
-        System.out.println(kdtree.contains(new Point2D(0.25, 0.75)));
+        System.out.println(kdtree.size());
+        System.out.println(kdtree.contains(new Point2D(0.25, 0.0)));
+
     }
 
 }
